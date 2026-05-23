@@ -1,24 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
+
 metadata:
-  name: nginx
-  labels:
-    first: app
-spec: # behavior of the replica sets
-  replicas: 3
-  selector: 
+  name: speakershop-deployment
+
+spec:
+  replicas: 2
+
+  selector:
     matchLabels:
-      app: web
-  template: 
+      app: speakershop
+
+  template:
     metadata:
       labels:
-        app: web
-    spec: # behavior of the pods
+        app: speakershop
+
+    spec:
       containers:
-      - name: mohit-container
+
+      - name: speakershop-container
+        image: mohitdocker241/speakershop:v1.0.0
+        ports:
+        - containerPort: 3000
+
+      - name: nginx-container
         image: nginx:latest
         ports:
-        - containerPort: 80      
-
-
-
+        - containerPort: 80
