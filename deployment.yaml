@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  labels:
+    first: app
+spec: # behavior of the replica sets
+  replicas: 3
+  selector: 
+    matchLabels:
+      app: web
+  template: 
+    metadata:
+      labels:
+        app: web
+    spec: # behavior of the pods
+      containers:
+      - name: mohit-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80      
+
+
+
