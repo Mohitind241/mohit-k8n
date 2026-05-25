@@ -1,48 +1,48 @@
+# load balancer in ec2 instance for exposing the application.
 apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: speakershop-deployment
+  name: organic-ghee-deployment
 
 spec:
-  replicas: 2
+  replicas: 1
 
   selector:
     matchLabels:
-      app: speakershop
+      app: organic-ghee
 
   template:
+
     metadata:
       labels:
-        app: speakershop
+        app: organic-ghee
 
     spec:
       containers:
 
-      - name: speakershop-container
-        image: mohitdocker241/speakershop:v1.0.0
-        ports:
-        - containerPort: 3000
+        - name: organic-ghee-container
+          image: mohitdocker241/organic-ghee:v1.0.0
 
-      - name: nginx-container
-        image: nginx:latest
-        ports:
-        - containerPort: 80
+          ports:
+            - containerPort: 5656
 
 ---
 apiVersion: v1
 kind: Service
 
 metadata:
-  name: my-service
+  name: organic-ghee-service
 
 spec:
   selector:
-    app: speakershop
+    app: organic-ghee
 
   ports:
-  - protocol: TCP
-    port: 85
-    targetPort: 80
+    - protocol: TCP
+      port: 80
+      targetPort: 5656
 
-  type: ClusterIP
+  type: LoadBalancer
+
+  
