@@ -1,4 +1,3 @@
-# load balancer in ec2 instance for exposing the application.
 apiVersion: apps/v1
 kind: Deployment
 
@@ -44,5 +43,3 @@ spec:
       targetPort: 5656
 
   type: ClusterIP
-
-  
