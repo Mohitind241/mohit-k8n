@@ -1,0 +1,30 @@
+replicaCount: 1
+
+appName: organic-ghee
+
+deployment:
+  name: organic-ghee-deployment
+
+container:
+  name: organic-ghee-container
+  image: mohitdocker241/organic-ghee:v1.0.0
+  port: 5656
+
+service:
+  name: organic-ghee-service
+  type: NodePort
+  port: 80
+  targetPort: 5656
+  nodePort: 30007
+
+configMap:
+  name: organic-ghee-config
+  APP_NAME: Organic Ghee
+  APP_VERSION: v1.0.0
+  APP_PORT: "5656"
+  ENVIRONMENT: production
+
+secret:
+  name: organic-ghee-secret
+  DB_User: QURNSU4=
+  DB_Password: UGFzc3dvcmQ=
