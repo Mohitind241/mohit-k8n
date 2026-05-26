@@ -9,11 +9,6 @@ spec:
     - name: organic-ghee-gateway
 
   rules:
-    - matches:
-        - path:
-            type: PathPrefix
-            value: /organic-ghee
-
-      backendRefs:
+    - backendRefs:
         - name: organic-ghee-service
           port: 80

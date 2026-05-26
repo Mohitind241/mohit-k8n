@@ -5,7 +5,7 @@ metadata:
   name: organic-ghee-gateway
 
 spec:
-  gatewayClassName: nginx
+  gatewayClassName: envoy
 
   listeners:
     - name: http

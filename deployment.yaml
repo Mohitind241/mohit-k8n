@@ -25,6 +25,9 @@ spec:
 
           ports:
             - containerPort: 5656
+          envFrom:
+            - configMapRef:
+                name: organic-ghee-config
 
 ---
 apiVersion: v1
