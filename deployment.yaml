@@ -28,6 +28,9 @@ spec:
           envFrom:
             - configMapRef:
                 name: organic-ghee-config
+            - secretRef:
+                name: organic-ghee-secret
+                
 
 ---
 apiVersion: v1
