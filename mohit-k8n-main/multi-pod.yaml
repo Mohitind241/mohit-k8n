@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: mohit-pod
+
+spec:
+  containers:
+
+    - name: veg-container
+      image: nginx
+
+      ports:
+        - containerPort: 3000
+
+    - name: organic-container
+      image: httpd
+
+      ports:
+        - containerPort: 5656
